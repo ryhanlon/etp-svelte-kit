@@ -1,8 +1,12 @@
 <script>
     import {lessonsData} from '../routes/exploring-the-path/lessons_data.js';
-    const {id, paliname, engname, definition } = lessonsData.lesson_1.ln_1_1_1;
-    console.log(lessonsData, 'test');
+	let lessonNo = "chapter_1";
+	let lesson = 'ln_1_1_1';
+    let  {slug, id, paliname, engname, definition } = lessonsData[lessonNo][lesson];
+
 	export let hiLiteSel;
+
+	const rootURL = 'http://localhost:3000/exploring-the-path/'
 
 	const lessonLinks = ["Introduction", "English", "Pali", "Compare", "Flashcards"];
 </script>
@@ -18,10 +22,16 @@
 
 	<nav>
   {#each lessonLinks as linkName, i}
-		<button title={linkName}
+	  {#if i === 0}<a href={`${rootURL}${slug}/`}><button title={linkName}
 						data-index={i}
 						class:highlight={linkName === hiLiteSel}
-						on:click>{linkName}</button>
+						on:click>{linkName}</button></a>
+		  {:else}
+		  <a href={`${rootURL}${slug}/${linkName.toLowerCase()}`}><button title={linkName}
+						data-index={i}
+						class:highlight={linkName === hiLiteSel}
+						on:click>{linkName}</button></a>
+		  {/if}
 	{/each}
 </nav>
 </header>

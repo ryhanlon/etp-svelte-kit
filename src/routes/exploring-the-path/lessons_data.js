@@ -1,7 +1,7 @@
 export const lessonsData = {
-    lesson_1: {
+    chapter_1: {
         ln_1_1_1: {
-            slug: "lesson-1-1-1",
+            slug: "chapter-1/lesson-1-1-1",
             id: "Lesson 1.1.1",
             paliname: "Bahujanahitasuttaṃ",
             engname: "For the Benefit of Many",
