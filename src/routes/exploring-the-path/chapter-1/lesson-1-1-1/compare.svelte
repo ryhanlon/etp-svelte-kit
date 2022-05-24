@@ -1,10 +1,11 @@
 <script>
-    import {lessonsData} from '../../lessons_data.js';
-	let lessonNo = "chapter_1";
-	let lesson = 'ln_1_1_1';
-	let sidebysideData = lessonsData[lessonNo][lesson].sidebyside
-	let paliTitle = lessonsData[lessonNo][lesson].paliname;
-	let engTitle = lessonsData[lessonNo][lesson].engname;
+    import {lessonsData} from '../../../../../data/lessons_data.js';
+	let chapterIndex = 0;
+	let lessonIndex = 0;
+
+	let sidebysideData = lessonsData[chapterIndex].lessons[lessonIndex].sidebyside
+	let paliTitle = lessonsData[chapterIndex].lessons[lessonIndex].paliname;
+	let engTitle = lessonsData[chapterIndex].lessons[lessonIndex].engname;
 
 
 </script>

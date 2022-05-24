@@ -1,8 +1,9 @@
 <script>
-    import {lessonsData} from '../routes/exploring-the-path/lessons_data.js';
-	let lessonNo = "chapter_1";
-	let lesson = 'ln_1_1_1';
-    let  {slug, id, paliname, engname, definition } = lessonsData[lessonNo][lesson];
+    import {lessonsData} from '../../data/lessons_data.js';
+	let chapterIndex = 0;
+	let lessonIndex = 0;
+
+    let  {slug, id, paliname, engname, definition } = lessonsData[chapterIndex].lessons[lessonIndex];
 
 	export let hiLiteSel;
 

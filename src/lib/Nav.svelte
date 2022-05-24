@@ -1,9 +1,7 @@
 <script>
     import {fly} from 'svelte/transition'
 
-    const url = "http://localhost:3000/exploring-the-path/"
-
-    let isOpen = false;
+    let isOpen = true;
     let subNavOpen = false;
 
     const handleSubNav = () => subNavOpen ? subNavOpen = false : subNavOpen = true
@@ -14,9 +12,9 @@
 
 <nav class="topnav" id="topNav">
     <div>
-        <a href="/" class="active">Home</a>
-        <a href="/exploring-the-path">Exploring the Path</a>
+        <h1>Exploring the Path</h1>
     </div>
+    <!-- hamburger for modal   -->
     <div id="menu-cont" on:click={() => isOpen = true}>
         <a href="#menu" class="icon">
             &#9776;
@@ -38,11 +36,11 @@
             <i class="fa fa-caret-down" class:fa-caret-up={subNavOpen}></i>
         </button>
         <div class="dropdown-container" id="exploring-the-path" class:show-submenu={subNavOpen}>
-            {#each suttaData as suttaObj}
-                <a on:click={() => isOpen = false} href={`${url}${suttaObj.id}`}>
-                    {suttaObj.id} {suttaObj.engname}
-                </a>
-            {/each}
+            <!--{#each suttaData as suttaObj}-->
+            <!--    <a on:click={() => isOpen = false} href={`${url}${suttaObj.id}`}>-->
+            <!--        {suttaObj.id} {suttaObj.engname}-->
+            <!--    </a>-->
+            <!--{/each}-->
         </div>
 
         <button class="dropdown-btn">Buddhasahassanāmāvali
@@ -62,13 +60,13 @@
 
     .topnav {
         overflow: hidden;
-        background-color: #333;
+        background-color: #dcd3c0;
     }
 
     .topnav a {
         float: left;
         display: block;
-        color: #f2f2f2;
+        color: #333;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
