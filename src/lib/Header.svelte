@@ -1,19 +1,25 @@
 <script>
-    import {lessonsData} from '../../data/lessons_data.js';
+    import {lessonsData} from '../routes/data/lessons_data.js';
+	import SideNav from "./SideNav.svelte";
+
 	let chapterIndex = 0;
 	let lessonIndex = 0;
-
     let  {slug, id, paliname, engname, definition } = lessonsData[chapterIndex].lessons[lessonIndex];
 
-	export let hiLiteSel;
+	// export let hiLiteSel;
 
 	const rootURL = 'http://localhost:3000/exploring-the-path/'
 
 	const lessonLinks = ["Introduction", "English", "Pali", "Compare", "Flashcards"];
+
+	let isOpen = false;
+	let subNavOpen = false;
+	$: console.log(isOpen);
 </script>
 
 
 <header>
+	<SideNav {isOpen} {subNavOpen} tocData={lessonsData}/>
 	<p class="pali">
 		Namo tassa bhagavato arahato sammāsambuddhassa
 	</p>
@@ -25,12 +31,10 @@
   {#each lessonLinks as linkName, i}
 	  {#if i === 0}<a href={`${rootURL}${slug}/`}><button title={linkName}
 						data-index={i}
-						class:highlight={linkName === hiLiteSel}
 						on:click>{linkName}</button></a>
 		  {:else}
 		  <a href={`${rootURL}${slug}/${linkName.toLowerCase()}`}><button title={linkName}
 						data-index={i}
-						class:highlight={linkName === hiLiteSel}
 						on:click>{linkName}</button></a>
 		  {/if}
 	{/each}

@@ -1,8 +1,9 @@
 <script>
     import {fly} from 'svelte/transition'
 
-    let isOpen = true;
-    let subNavOpen = false;
+    export let isOpen;
+    export let subNavOpen;
+    export let tocData;
 
     const handleSubNav = () => subNavOpen ? subNavOpen = false : subNavOpen = true
 
@@ -27,25 +28,18 @@
     <section id="sidenav" class="sidenav" transition:fly={{x: 500}}>
         <a href="#navfauxlink" class="closebtn" on:click={() => isOpen = false}>&times;</a>
 
-        <button class="dropdown-btn">Intro to Pali
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container" id="intro-to-pali"></div>
-
-        <button class="dropdown-btn" on:click={handleSubNav}>Exploring the Path
+        {#each tocData as chapterObj, i}
+        <button class="dropdown-btn" on:click={handleSubNav}>{chapterObj.chapter}
             <i class="fa fa-caret-down" class:fa-caret-up={subNavOpen}></i>
         </button>
-        <div class="dropdown-container" id="exploring-the-path" class:show-submenu={subNavOpen}>
-            <!--{#each suttaData as suttaObj}-->
-            <!--    <a on:click={() => isOpen = false} href={`${url}${suttaObj.id}`}>-->
-            <!--        {suttaObj.id} {suttaObj.engname}-->
-            <!--    </a>-->
-            <!--{/each}-->
-        </div>
 
-        <button class="dropdown-btn">Buddhasahassanāmāvali
-            <i class="fa fa-caret-down"></i>
-        </button>
+            {/each}
+
+        <div class="dropdown-container" id="intro-to-pali"></div>
+
+        <div class="dropdown-container" id="exploring-the-path" class:show-submenu={subNavOpen}>
+
+        </div>
         <div class="dropdown-container" id="buddhasahassanamavali"></div>
     </section>
 {/if}

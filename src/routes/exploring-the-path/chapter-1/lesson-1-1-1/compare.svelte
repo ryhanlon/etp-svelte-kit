@@ -1,5 +1,5 @@
 <script>
-    import {lessonsData} from '../../../../../data/lessons_data.js';
+    import {lessonsData} from '../../../data/lessons_data.js';
 	let chapterIndex = 0;
 	let lessonIndex = 0;
 
