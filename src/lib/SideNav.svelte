@@ -1,13 +1,18 @@
 <script>
-    import {fly} from 'svelte/transition'
+    import {fly} from 'svelte/transition';
+    import SubNav from "./SubNav.svelte";
 
     export let isOpen;
     export let subNavOpen;
     export let tocData;
-
-    const handleSubNav = () => subNavOpen ? subNavOpen = false : subNavOpen = true
-
-    // $:console.log(url)
+    let chapterIndex = 0;
+    $: chapterLessons = tocData[chapterIndex].lessons;
+    const url = "http://localhost:3000/exploring-the-path/";
+    const handleSubNav = (e) => {
+        subNavOpen ? subNavOpen = false : subNavOpen = true;
+        chapterIndex = e.target.dataset.chapindex
+    }
+    $:console.log(chapterIndex, chapterLessons)
 </script>
 
 
@@ -28,19 +33,27 @@
     <section id="sidenav" class="sidenav" transition:fly={{x: 500}}>
         <a href="#navfauxlink" class="closebtn" on:click={() => isOpen = false}>&times;</a>
 
-        {#each tocData as chapterObj, i}
-        <button class="dropdown-btn" on:click={handleSubNav}>{chapterObj.chapter}
-            <i class="fa fa-caret-down" class:fa-caret-up={subNavOpen}></i>
-        </button>
+            <!--  Chapter 1  -->
+            <SubNav {subNavOpen}
+                    {chapterLessons}
+                    {url}
+                    chapterNum="Chapter 1"
+                    chapterIndex="0"/>
 
-            {/each}
+                    <!--  Chapter 2  -->
+            <SubNav {subNavOpen}
+                    {chapterLessons}
+                    {url}
+                    chapterNum="Chapter 2"
+                    chapterIndex="1"/>
 
-        <div class="dropdown-container" id="intro-to-pali"></div>
+                    <!--  Chapter 3  -->
+            <SubNav {subNavOpen}
+                    {chapterLessons}
+                    {url}
+                    chapterNum="Chapter 3"
+                    chapterIndex="2"/>
 
-        <div class="dropdown-container" id="exploring-the-path" class:show-submenu={subNavOpen}>
-
-        </div>
-        <div class="dropdown-container" id="buddhasahassanamavali"></div>
     </section>
 {/if}
 
@@ -72,10 +85,6 @@
         color: black;
     }
 
-    .topnav a.active {
-        background-color: #ba5626;
-        color: white;
-    }
 
     .topnav .icon {
         display: block;
@@ -116,7 +125,7 @@
         transition: 0.3s;
     }
 
-    .sidenav a, .dropdown-btn {
+    .sidenav a {
         padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 20px;
@@ -131,26 +140,19 @@
     }
 
     /* On mouse-over */
-    .sidenav a:hover,
-    .dropdown-btn:hover {
+    .sidenav a:hover {
         color: #f1f1f1;
     }
 
-    .dropdown-container {
-        display: none;
-        background-color: #262626;
-        padding-left: 8px;
-    }
 
-    .show-submenu {
-        display: block;
-    }
+    /*.show-submenu {*/
+    /*    height: 300px;*/
+    /*    overflow: scroll;*/
+
+    /*}*/
 
     /* Optional: Style the caret down icon */
-    .fa-caret-down {
-        float: right;
-        padding-right: 8px;
-    }
+
 
     section.sidenav .closebtn {
         position: absolute;
