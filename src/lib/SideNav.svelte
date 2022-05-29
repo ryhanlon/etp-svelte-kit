@@ -3,16 +3,14 @@
     import SubNav from "./SubNav.svelte";
 
     export let isOpen;
-    export let subNavOpen;
     export let tocData;
-    let chapterIndex = 0;
-    $: chapterLessons = tocData[chapterIndex].lessons;
+    let chapterLesson1 = tocData[0].lessons;
+    let chapterLesson2 = tocData[1].lessons;
+    let chapterLesson3 = tocData[2].lessons;
+
     const url = "http://localhost:3000/exploring-the-path/";
-    const handleSubNav = (e) => {
-        subNavOpen ? subNavOpen = false : subNavOpen = true;
-        chapterIndex = e.target.dataset.chapindex
-    }
-    $:console.log(chapterIndex, chapterLessons)
+
+    $:console.log(isOpen)
 </script>
 
 
@@ -34,25 +32,22 @@
         <a href="#navfauxlink" class="closebtn" on:click={() => isOpen = false}>&times;</a>
 
             <!--  Chapter 1  -->
-            <SubNav {subNavOpen}
-                    {chapterLessons}
+            <SubNav chapterLessons={chapterLesson1}
                     {url}
-                    chapterNum="Chapter 1"
-                    chapterIndex="0"/>
+                    {isOpen}
+                    chapterNum="Chapter 1" />
 
                     <!--  Chapter 2  -->
-            <SubNav {subNavOpen}
-                    {chapterLessons}
+            <SubNav chapterLessons={chapterLesson2}
                     {url}
-                    chapterNum="Chapter 2"
-                    chapterIndex="1"/>
+                    {isOpen}
+                    chapterNum="Chapter 2"/>
 
                     <!--  Chapter 3  -->
-            <SubNav {subNavOpen}
-                    {chapterLessons}
+            <SubNav chapterLessons={chapterLesson3}
                     {url}
-                    chapterNum="Chapter 3"
-                    chapterIndex="2"/>
+                    {isOpen}
+                    chapterNum="Chapter 3" />
 
     </section>
 {/if}

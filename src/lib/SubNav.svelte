@@ -1,31 +1,35 @@
 <script>
-    export let subNavOpen;
+    let subNavOpen;
     export let chapterLessons;
     export let url;
+    export let isOpen;
 
     // $:console.log(chapterIndex, chapterLessons)
-
+    const handleSubNav = () => {
+        subNavOpen ? subNavOpen = false : subNavOpen = true;
+    }
     export let chapterNum;
-    export let chapterIndex;
 
 </script>
 
-<!--  Chapter 1  -->
+            <!--  SubNave Menu when Chapter is clicked  -->
             <button class="dropdown-btn" >{chapterNum}
                 <i class="fa fa-caret-down"
                    class:fa-caret-up={subNavOpen}
-                   data-chapIndex={chapterIndex}
-                   on:click >
+                    on:click={handleSubNav} >
                 </i>
             </button>
-            <div class="dropdown-container"
+            <ul class="dropdown-container"
                  class:show-submenu={subNavOpen}>
                 {#each chapterLessons as lessonObj}
-                    <a on:click={() => isOpen = false} href={`${url}${lessonObj.slug}`}>
+<!--                    TODO on click is not rendering on li-->
+                    <li on:click={() => isOpen = false}>
+                        <a href={`${url}${lessonObj.slug}`}>
                         {lessonObj.id} {lessonObj.engname}
-                    </a>
+                        </a>
+                    </li>
                 {/each}
-            </div>
+            </ul>
 
 
 <style>
@@ -48,15 +52,25 @@
     color: #f1f1f1;
   }
 
-  .dropdown-container {
-    display: none;
+  ul.dropdown-container {
+    height: 0;
+    overflow: hidden;
     background-color: #262626;
     padding-left: 8px;
+      text-align: left;
   }
 
-    .show-submenu {
-        height: 300px;
+    ul.show-submenu {
+        height: 150px;
         overflow: scroll;
+    }
+
+    li {
+        margin: 5px 0;
+        font-size: 1.1rem;
+    }
+    a {
+        color: #a8a3a3;
     }
 
     /* Optional: Style the caret down icon */

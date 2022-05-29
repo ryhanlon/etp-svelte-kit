@@ -2,6 +2,8 @@
     import {lessonsData} from '../routes/data/lessons_data.js';
 	import SideNav from "./SideNav.svelte";
 
+	// TODO make header button dynamic
+
 	let chapterIndex = 0;
 	let lessonIndex = 0;
     let  {slug, id, paliname, engname, definition } = lessonsData[chapterIndex].lessons[lessonIndex];

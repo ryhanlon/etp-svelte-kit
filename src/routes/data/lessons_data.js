@@ -156,7 +156,7 @@ export const lessonsData = [
         chapter: "Chapter 2",
         lessons: [
             {
-            slug: "chapter-1/lesson-1-1-1",
+            slug: "chapter-2/lesson-2-1-0",
             id: "Lesson 2.1.0",
             paliname: "Bahujanahitasuttaṃ",
             engname: "For the Benefit of Many",
@@ -230,7 +230,7 @@ export const lessonsData = [
 
         },
             {
-            slug: "chapter-1/lesson-1-2-0",
+            slug: "chapter-2/lesson-2-1-1",
             id: "Lesson 2.1.1",
             paliname: "Dullabho",
             engname: "So Rare",
@@ -309,7 +309,7 @@ export const lessonsData = [
         chapter: "Chapter 3",
         lessons: [
             {
-            slug: "chapter-1/lesson-1-1-1",
+            slug: "chapter-3/lesson-3-1-1",
             id: "Lesson 3.1.1",
             paliname: "Bahujanahitasuttaṃ",
             engname: "For the Benefit of Many",
@@ -383,7 +383,7 @@ export const lessonsData = [
 
         },
             {
-            slug: "chapter-1/lesson-1-2-0",
+            slug: "chapter-3/lesson-3-1-2",
             id: "Lesson 3.1.2",
             paliname: "Dullabho",
             engname: "So Rare",
