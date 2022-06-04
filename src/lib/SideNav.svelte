@@ -35,19 +35,25 @@
             <SubNav chapterLessons={chapterLesson1}
                     {url}
                     {isOpen}
-                    chapterNum="Chapter 1" />
+                    chapterNum="Chapter 1"
+                    chapIndex="0"
+                    on:click />
 
                     <!--  Chapter 2  -->
             <SubNav chapterLessons={chapterLesson2}
                     {url}
                     {isOpen}
-                    chapterNum="Chapter 2"/>
+                    chapterNum="Chapter 2"
+                    chapIndex="1"
+                    on:click />
 
                     <!--  Chapter 3  -->
             <SubNav chapterLessons={chapterLesson3}
                     {url}
                     {isOpen}
-                    chapterNum="Chapter 3" />
+                    chapterNum="Chapter 3"
+                    chapIndex="2"
+                    on:click />
 
     </section>
 {/if}

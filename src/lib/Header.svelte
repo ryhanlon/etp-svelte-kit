@@ -4,11 +4,14 @@
 
 	// TODO make header button dynamic
 
-	let chapterIndex = 0;
+	let chapIndex = 0;
 	let lessonIndex = 0;
-    let  {slug, id, paliname, engname, definition } = lessonsData[chapterIndex].lessons[lessonIndex];
+   $: lesson = lessonsData[chapIndex].lessons[lessonIndex];
 
-	// export let hiLiteSel;
+	const setIndices = (e) => {
+		chapIndex = e.target.dataset.chapIndex;
+		lessonIndex = e.target.dataset.lessonIndex;
+	}
 
 	const rootURL = 'http://localhost:3000/exploring-the-path/'
 
@@ -16,26 +19,29 @@
 
 	let isOpen = false;
 	let subNavOpen = false;
-	$: console.log(isOpen);
+	$: console.log(lesson);
 </script>
 
 
 <header>
-	<SideNav {isOpen} {subNavOpen} tocData={lessonsData}/>
+	<SideNav {isOpen}
+			 {subNavOpen}
+			 tocData={lessonsData}
+			 on:click={setIndices} />
 	<p class="pali">
 		Namo tassa bhagavato arahato sammāsambuddhassa
 	</p>
-	<h3>{id}</h3>
-	<h1 title={definition}>{paliname}</h1>
-	<h2>{engname}</h2>
+	<h3>{lesson.id}</h3>
+	<h1 title={lesson.definition}>{lesson.paliname}</h1>
+	<h2>{lesson.engname}</h2>
 
 	<nav>
   {#each lessonLinks as linkName, i}
-	  {#if i === 0}<a href={`${rootURL}${slug}/`}><button title={linkName}
+	  {#if i === 0}<a href={`${rootURL}${lesson.slug}/`}><button title={linkName}
 						data-index={i}
 						on:click>{linkName}</button></a>
 		  {:else}
-		  <a href={`${rootURL}${slug}/${linkName.toLowerCase()}`}><button title={linkName}
+		  <a href={`${rootURL}${lesson.slug}/${linkName.toLowerCase()}`}><button title={linkName}
 						data-index={i}
 						on:click>{linkName}</button></a>
 		  {/if}
