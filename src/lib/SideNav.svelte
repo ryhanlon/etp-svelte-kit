@@ -62,8 +62,20 @@
 <style>
     nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        position: relative;
+    }
+
+    #menu-cont {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #menu-cont a{
+        font-size: 1.8rem;
+
     }
 
     .topnav {
