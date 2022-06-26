@@ -1,1 +1,1 @@
-<h1>Flashcards 1.1.1</h1>
+<h1>Flashcards 1.2.0</h1>

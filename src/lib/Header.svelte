@@ -19,7 +19,7 @@
 
 	let isOpen = false;
 	let subNavOpen = false;
-	$: console.log(lesson);
+	// $: console.log(lesson);
 </script>
 
 

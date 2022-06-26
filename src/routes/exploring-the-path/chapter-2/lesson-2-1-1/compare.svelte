@@ -1,7 +1,7 @@
 <script>
     import {lessonsData} from '../../../data/lessons_data.js';
-	let chapterIndex = 0;
-	let lessonIndex = 0;
+	let chapterIndex = 1;
+	let lessonIndex = 1;
 
 	let sidebysideData = lessonsData[chapterIndex].lessons[lessonIndex].sidebyside
 	let paliTitle = lessonsData[chapterIndex].lessons[lessonIndex].paliname;

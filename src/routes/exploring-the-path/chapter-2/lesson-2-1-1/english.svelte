@@ -1,5 +1,5 @@
 <script></script>
-
+<h1>English 2.1.1</h1>
 <p class="english-para">This has been said by the Blessed One, it has been said by an Arahant, it has been heard by me.</p>
 <p class="english-para">When these three kinds of individuals arise in the world, they arise for the well-being of many, for the happiness of many, out of compassion for the world, for the benefit, the welfare and happiness of gods and men.</p>
 <p class="english-para">Which are the three?</p>

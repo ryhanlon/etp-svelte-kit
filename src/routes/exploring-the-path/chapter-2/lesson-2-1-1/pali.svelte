@@ -14,6 +14,8 @@
 	}
 </script>
 
+
+<h1>Pali 2.1.1</h1>
 <!--{#if modalShowing}-->
 <!--<ModalFootnote footnoteContent={footnote}-->
 <!--							 on:click={() => modalShowing = false} />-->
